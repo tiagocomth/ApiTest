@@ -12,6 +12,7 @@ struct AddPhotoView: View {
     @State var viewModel = AddPhotoViewModel()
     @Environment(\.managedObjectContext) var context
     @Environment(\.dismiss) var dismiss
+    var photoToEdit: PhotoModel?
 
     var body: some View {
         NavigationStack{
@@ -62,10 +63,22 @@ struct AddPhotoView: View {
                 Spacer()
 
             }
+            .onAppear{
+                if let photoToEdit = photoToEdit{
+                    viewModel.name = photoToEdit.wrappedName
+                    viewModel.urlImageString = photoToEdit.wrappedImage
+                }
+            }
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        viewModel.addPhoto(context: context)
+                        if let photoToEdit = photoToEdit{
+                            viewModel.updatePhoto(context: context, photo: photoToEdit)
+                        }
+                        else{
+                            viewModel.addPhoto(context: context)
+
+                        }
                         dismiss()
                         
                     } label: {

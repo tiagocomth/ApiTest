@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 @Observable
 class HomeViewModel {
     var showAddPhotoView = false
+    var editPhoto: PhotoModel?
     var columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -28,6 +30,19 @@ class HomeViewModel {
     
     var itemHeight: CGFloat {
         return itemWidth
+    }
+    
+    func delete(context: NSManagedObjectContext, photo: PhotoModel){
+        
+        context.delete(photo)
+        
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+        
     }
     
 }

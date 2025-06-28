@@ -18,6 +18,7 @@ class AddPhotoViewModel {
     var urlImageString: String?
     
     private var apiClient = APIClient()
+    
 
     
     
@@ -43,6 +44,18 @@ class AddPhotoViewModel {
         let newPhoto = PhotoModel(context: context)
         newPhoto.name = name
         newPhoto.image = urlImageString ?? ""
+        
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
+    
+    func updatePhoto(context: NSManagedObjectContext, photo: PhotoModel) {
+        photo.name = name
+        photo.image = urlImageString ?? ""
         
         do {
             try context.save()

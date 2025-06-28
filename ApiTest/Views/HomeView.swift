@@ -22,16 +22,24 @@ struct HomeView: View {
                 ScrollView{
                     LazyVGrid(columns: viewModel.columns, spacing: 25) {
                         ForEach(photos) { photo in
-                            AsyncImage(url: URL(string: photo.wrappedImage)!) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: viewModel.itemWidth, height: viewModel.itemHeight)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                            } placeholder: {
-                                Text("placeholder")
+                            Button {
+                                viewModel.editPhoto = photo
+                            } label: {
+                                AsyncImage(url: URL(string: photo.wrappedImage)!) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: viewModel.itemWidth, height: viewModel.itemHeight)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                } placeholder: {
+                                    Text("placeholder")
+                                }
+                                .contextMenu {
+                                    Button("Delete", role: .destructive) {
+                                        viewModel.delete(context: context, photo: photo)
+                                    }
+                                }
                             }
-
                         }
                     }
                 }
@@ -39,6 +47,10 @@ struct HomeView: View {
 
             .sheet(isPresented: $viewModel.showAddPhotoView, content: {
                 AddPhotoView()
+                    .presentationDetents([.fraction(1)])
+            })
+            .sheet(item: $viewModel.editPhoto, content: { photoToEdit in
+                AddPhotoView(photoToEdit: photoToEdit)
                     .presentationDetents([.fraction(1)])
             })
             .navigationTitle("my photos")

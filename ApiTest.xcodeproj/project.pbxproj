@@ -23,6 +23,7 @@
 		A53EA8942E1076130092B5BE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA8932E1076130092B5BE /* DataManager.swift */; };
 		A53EA8A22E107A480092B5BE /* PhotoModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA8A02E107A480092B5BE /* PhotoModel+CoreDataClass.swift */; };
 		A53EA8A32E107A480092B5BE /* PhotoModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA8A12E107A480092B5BE /* PhotoModel+CoreDataProperties.swift */; };
+		A53EA8C52E108A270092B5BE /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53EA8C42E108A270092B5BE /* PhotoDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		A53EA8932E1076130092B5BE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A53EA8A02E107A480092B5BE /* PhotoModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A53EA8A12E107A480092B5BE /* PhotoModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A53EA8C42E108A270092B5BE /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				A53EA87A2E1034710092B5BE /* Components */,
 				A53EA86B2E10333A0092B5BE /* HomeView.swift */,
 				A53EA8732E10336B0092B5BE /* AddPhotoView.swift */,
+				A53EA8C42E108A270092B5BE /* PhotoDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				A53EA8742E10336B0092B5BE /* AddPhotoView.swift in Sources */,
 				A53EA8A22E107A480092B5BE /* PhotoModel+CoreDataClass.swift in Sources */,
 				A53EA8A32E107A480092B5BE /* PhotoModel+CoreDataProperties.swift in Sources */,
+				A53EA8C52E108A270092B5BE /* PhotoDetailView.swift in Sources */,
 				A53EA8802E1044600092B5BE /* CapsuleTextFieldStyle.swift in Sources */,
 				A53EA8792E10346A0092B5BE /* PhotoCard.swift in Sources */,
 				A53EA86F2E10333A0092B5BE /* HomeView.swift in Sources */,
