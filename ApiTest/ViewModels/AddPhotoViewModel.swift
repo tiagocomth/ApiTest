@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
+import CoreData
 
 @Observable
 class AddPhotoViewModel {
+    
+    
     var name: String = ""
     var image: PhotoResponse?
     var urlImageString: String?
@@ -33,6 +37,19 @@ class AddPhotoViewModel {
         
         
         
+    }
+    
+    func addPhoto(context: NSManagedObjectContext) {
+        let newPhoto = PhotoModel(context: context)
+        newPhoto.name = name
+        newPhoto.image = urlImageString ?? ""
+        
+        do {
+            try context.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
     
     

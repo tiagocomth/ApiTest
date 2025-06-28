@@ -10,7 +10,9 @@ import SwiftUI
 struct AddPhotoView: View {
     
     @State var viewModel = AddPhotoViewModel()
-    
+    @Environment(\.managedObjectContext) var context
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         NavigationStack{
             VStack(spacing: 20){
@@ -63,7 +65,9 @@ struct AddPhotoView: View {
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        //salvar foto na galeria
+                        viewModel.addPhoto(context: context)
+                        dismiss()
+                        
                     } label: {
                         Text("Salvar")
                     }

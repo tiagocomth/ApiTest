@@ -19,7 +19,7 @@ class HomeViewModel {
     let spacing: CGFloat = 5
     let padding: CGFloat = 10
     
-    var photos: [Photo] = []
+    //var photos: [Photo] = []
     
     var itemWidth: CGFloat {
         let screenWidth = UIScreen.main.bounds.width
