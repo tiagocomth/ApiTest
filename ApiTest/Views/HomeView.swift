@@ -19,6 +19,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
+                Text("API + CRUD + COREDATA")
                 ScrollView{
                     LazyVGrid(columns: viewModel.columns, spacing: 25) {
                         ForEach(photos) { photo in
